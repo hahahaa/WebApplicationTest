@@ -66,6 +66,22 @@ public class AccessToolsTest {
 		assertEquals(expectedURL, driver.getCurrentUrl());
 	}
 	
+	@Test
+	public void testConvertSecondsToTime() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/seconds_to_hh_mm_ss/";
+		WebElement tool = driver.findElement(By.linkText("Convert seconds to HH:MM:SS"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void testOnlineHashCalculator() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/hash/";
+		WebElement tool = driver.findElement(By.linkText("Online hash calculator"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();

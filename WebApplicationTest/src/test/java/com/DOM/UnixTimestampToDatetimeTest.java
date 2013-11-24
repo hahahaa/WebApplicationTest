@@ -14,6 +14,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/**
+ * This tool converts Unix timestamp to human readable date and time format 
+ * with customizable parameters such as the timezone. 
+ * @author David
+ *
+ */
 public class UnixTimestampToDatetimeTest {
 	
 	WebDriver driver = new FirefoxDriver();
