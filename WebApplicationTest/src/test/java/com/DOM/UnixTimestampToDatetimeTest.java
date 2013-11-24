@@ -130,6 +130,8 @@ public class UnixTimestampToDatetimeTest {
 			assertEquals(expected, driver.findElement(By.id("result")).getText());
 			
 			expected = "Formatted datetime: Thu";
+			formatTextbox.sendKeys(Keys.CONTROL + "a");
+			formatTextbox.sendKeys(Keys.DELETE);
 			formatTextbox.sendKeys("D");
 			convertButton.click();
 			Thread.sleep(1000);
