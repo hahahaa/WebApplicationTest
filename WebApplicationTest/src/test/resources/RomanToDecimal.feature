@@ -8,4 +8,4 @@ Scenario: Convert the Roman number X to its Decimal format
 	And select the method roman to decimal
 	When I type the MMMMCCCXII into the number field
 	And I click the covert button
-	Then the result is "4312"
+	Then the result is 4312

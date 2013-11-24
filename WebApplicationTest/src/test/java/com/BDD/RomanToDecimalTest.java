@@ -53,7 +53,7 @@ public class RomanToDecimalTest {
 		convertButton.click();
 	}
 
-	@Then("^the result is \"([^\"]*)\"$")
+	@Then("^the result is (\\d+)$")
 	public void the_result_is(int arg1) throws Throwable {
 		String expectedResult = "4312";
 		new WebDriverWait(driver, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("well")));
