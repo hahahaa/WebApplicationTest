@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.Select;
  * @author David
  *
  */
-public class RomanToDecomalToolTest {
+public class RomanToDecimalToolTest {
 
 	WebDriver driver = new FirefoxDriver();
 	String URL_tool = "http://www.tools4noobs.com/online_tools/roman_decimal/";

@@ -35,7 +35,7 @@ public class AccessToolsTest {
 	}
 	
 	@Test
-	public void testRomanToDecomalTool() {
+	public void testRomanToDecimalTool() {
 		String expectedURL = "http://www.tools4noobs.com/online_tools/roman_decimal/";
 		WebElement tool = driver.findElement(By.linkText("Roman to decimal converter"));
 		tool.click();
