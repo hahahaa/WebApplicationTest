@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -40,10 +39,6 @@ public class CountLinesTest {
 	@Then("^the number of lines is five$")
 	public void the_number_of_lines_is_five() throws Throwable {
 		assertEquals("5", driver.findElement(By.id("resultspan")).getText() );
-	}
-	
-	@After
-	public void tearDown() throws Exception {
 		driver.quit();
 	}
 }
