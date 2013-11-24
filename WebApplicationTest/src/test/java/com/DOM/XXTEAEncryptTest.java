@@ -3,6 +3,7 @@ package com.DOM;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -126,5 +127,10 @@ public class XXTEAEncryptTest
 		} catch (InterruptedException e) {
 			fail(e.getMessage());
 		}		
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
 	}
 }
