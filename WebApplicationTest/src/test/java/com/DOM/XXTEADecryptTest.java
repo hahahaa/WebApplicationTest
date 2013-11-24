@@ -128,6 +128,7 @@ public class XXTEADecryptTest
 			fail(e.getMessage());
 		}		
 	}
+	
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
