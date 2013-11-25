@@ -41,10 +41,21 @@ public class RomanToDecimalTest {
 		methodList = new Select(driver.findElement(By.id("m")));
 		methodList.selectByValue("1");
 	}
+	
+	@Given("^select the method decimal to roman$")
+	public void select_the_method_decimal_to_roman() throws Throwable {
+		methodList = new Select(driver.findElement(By.id("m")));
+		methodList.selectByValue("0");
+	}
 
 	@When("^I type the MMMMCCCXII into the number field$")
 	public void I_type_the_MMMMCCCXII_into_the_number_field() throws Throwable {
 		numberTextbox.sendKeys("MMMMCCCXII");
+	}
+	
+	@When("^I type the (\\d+) into the number field$")
+	public void I_type_the_into_the_number_field(int arg1) throws Throwable {
+		numberTextbox.sendKeys("4312");
 	}
 
 	@When("^I click the covert button$")
@@ -56,6 +67,13 @@ public class RomanToDecimalTest {
 	@Then("^the result is (\\d+)$")
 	public void the_result_is(int arg1) throws Throwable {
 		String expectedResult = "4312";
+		new WebDriverWait(driver, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("well")));
+		assertEquals(expectedResult, driver.findElement(By.className("well")).getText());
+	}
+	
+	@Then("^the result is MMMMCCCXII$")
+	public void the_result_is_MMMMCCCXII() throws Throwable {
+		String expectedResult = "MMMMCCCXII";
 		new WebDriverWait(driver, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("well")));
 		assertEquals(expectedResult, driver.findElement(By.className("well")).getText());
 	}
