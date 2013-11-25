@@ -82,6 +82,38 @@ public class AccessToolsTest {
 		assertEquals(expectedURL, driver.getCurrentUrl());
 	}
 	
+	@Test
+	public void testASCII85Encoder() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/ascii85_encode/";
+		WebElement tool = driver.findElement(By.linkText("Online ASCII85 Encoder"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void testASCII85Decoder() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/ascii85_decode/";
+		WebElement tool = driver.findElement(By.linkText("Online ASCII85 Decoder"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void testOnlineXXTEADecrypt() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/xxtea_decrypt/";
+		WebElement tool = driver.findElement(By.linkText("Online XXTEA decrypt tool"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void testOnlineXXTEAEncrypt() {
+		String expectedURL = "http://www.tools4noobs.com/online_tools/xxtea_encrypt/";
+		WebElement tool = driver.findElement(By.linkText("Online XXTEA encrypt tool"));
+		tool.click();
+		assertEquals(expectedURL, driver.getCurrentUrl());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
