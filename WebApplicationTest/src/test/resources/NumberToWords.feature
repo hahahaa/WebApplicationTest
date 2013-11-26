@@ -7,5 +7,5 @@ Scenario: Convert the number 123456 to English words
 	And I clear all the text in the number to words field
 	When I type 123456 to the number field
 	And select "American English" as the language
-	When I click the "Spell number" button
+	And I click the "Spell number" button
 	Then the result is one hundred twenty-three thousand four hundred fifty-six
