@@ -8,3 +8,10 @@ Scenario: Count 1432 seconds to its readable format
 	When I type the "123456" into the number field
 	And I click the covert seconds button
 	Then the result is "Result: 1 days 10:17:36."
+	
+Scenario: Converting an invalid input
+	Given I have access to the seconds to text converter
+	And I clear all the text in the seconds field
+	When I type the abc into the number field
+	And I click the covert seconds button
+	Then the app returns an error msg, "Invalid number of seconds given"	

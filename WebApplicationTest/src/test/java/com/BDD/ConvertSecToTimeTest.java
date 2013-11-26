@@ -37,6 +37,11 @@ public class ConvertSecToTimeTest {
 		secondsTextbox.sendKeys(seconds);
 	}
 
+	@When("^I type the abc into the number field$")
+	public void I_type_the_abc_into_the_number_field() throws Throwable {
+		secondsTextbox.sendKeys("abc");
+	}
+	
 	@When("^I click the covert seconds button$")
 	public void I_click_the_covert_button() throws Throwable {
 		convertButton = driver.findElement(By.xpath("//input[@value='Convert']"));
@@ -45,7 +50,14 @@ public class ConvertSecToTimeTest {
 
 	@Then("^the result is \"([^\"]*)\"$")
 	public void the_result_is(String arg1) throws Throwable {
-		String expected = "Result: 1 days 10:17:36.";
+		String expected = "Result: " + secondsToStr(123456);
+		Thread.sleep(1000);
+		assertEquals(expected, driver.findElement(By.id("result")).getText());
+	}
+	
+	@Then("^the app returns an error msg, \"([^\"]*)\"$")
+	public void the_app_returns_an_error_msg(String arg1) throws Throwable {
+		String expected = "Invalid number of seconds given";
 		Thread.sleep(1000);
 		assertEquals(expected, driver.findElement(By.id("result")).getText());
 	}
@@ -53,5 +65,17 @@ public class ConvertSecToTimeTest {
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
+	}
+	
+	private String secondsToStr(int seconds) {
+		int secOfOneDay = 86400;
+		String str = "";
+		int days = seconds / secOfOneDay;
+		if(days != 0) {
+			str = str + Integer.toString(days) + " days ";
+			seconds = seconds - days*secOfOneDay;
+		}		
+		str = str + String.format("%02d:%02d:%02d.", (seconds/3600)%24, (seconds/60)%60, seconds%60);
+		return str;
 	}
 }
