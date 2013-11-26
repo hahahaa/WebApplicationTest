@@ -72,17 +72,16 @@ public class ConvertSecondsToTimeTest {
 	public void testConversion() {
 		String seconds;
 		String expected;
-		
 		try {
 			seconds = "0";
-			expected = "Result: 00:00:00.";
+			expected = "Result: " + secondsToStr(0);
 			secondsTextbox.sendKeys(seconds);
 			convertButton.click();
 			Thread.sleep(1000);
 			assertEquals(expected, driver.findElement(By.id("result")).getText());
 			
 			seconds = "123456";
-			expected = "Result: 1 days 10:17:36.";
+			expected = "Result: " + secondsToStr(123456);
 			secondsTextbox.sendKeys(seconds);
 			convertButton.click();
 			Thread.sleep(1000);
@@ -92,11 +91,23 @@ public class ConvertSecondsToTimeTest {
 			fail("Element not found\n" + e.getMessage());
 		} catch (InterruptedException e) {
 			fail(e.getMessage());
-		}	
+		}
 	}
 	
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
+	}
+	
+	private String secondsToStr(int seconds) {
+		int secOfOneDay = 86400;
+		String str = "";
+		int days = seconds / secOfOneDay;
+		if(days != 0) {
+			str = str + Integer.toString(days) + " days ";
+			seconds = seconds - days*secOfOneDay;
+		}		
+		str = str + String.format("%02d:%02d:%02d.", (seconds/3600)%24, (seconds/60)%60, seconds%60);
+		return str;
 	}
 }

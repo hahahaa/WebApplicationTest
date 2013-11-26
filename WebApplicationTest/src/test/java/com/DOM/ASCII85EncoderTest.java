@@ -12,8 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ASCII85EncoderTest
-{
+public class ASCII85EncoderTest {
+	
 	WebDriver driver = new FirefoxDriver();	
 	String encoderPage = "http://www.tools4noobs.com/online_tools/ascii85_encode/";
 	WebElement TextElement;
@@ -25,16 +25,13 @@ public class ASCII85EncoderTest
 		driver.get(encoderPage);
 		TextElement = driver.findElement(By.id("text"));
 		ButtonElement = driver.findElement(By.xpath("//input[@value='ASCII85 encode']"));
-
 	}
 
 	@Test
-	public void testEmpty()
-	{
+	public void testEmpty() {
 		String input = "";
 		String result = "Please enter some text first.";
-		try
-		{
+		try {
 			TextElement.sendKeys(input);
 			ButtonElement.click();
 			Thread.sleep(1000);
@@ -50,12 +47,10 @@ public class ASCII85EncoderTest
 	}
 
 	@Test
-	public void testEncoder()
-	{
+	public void testEncoder() {
 		String input = "12345";
 		String result = "<~0etOA2#~>";
-		try
-		{
+		try {
 			TextElement.sendKeys(input);
 			ButtonElement.click();
 			Thread.sleep(1000);

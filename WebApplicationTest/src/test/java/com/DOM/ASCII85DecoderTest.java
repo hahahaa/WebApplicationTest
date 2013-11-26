@@ -12,8 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ASCII85DecoderTest
-{
+public class ASCII85DecoderTest {
+	
 	WebDriver driver = new FirefoxDriver();	
 	String decoderPage = "http://www.tools4noobs.com/online_tools/ascii85_decode/";
 	WebElement TextElement;
@@ -25,16 +25,13 @@ public class ASCII85DecoderTest
 		driver.get(decoderPage);
 		TextElement = driver.findElement(By.id("text"));
 		ButtonElement = driver.findElement(By.xpath("//input[@value='ASCII85 decode']"));
-
 	}
 
 	@Test
-	public void testEmpty()
-	{
+	public void testEmpty() {
 		String input = "";
 		String result = "Please enter some text first.";
-		try
-		{
+		try {
 			TextElement.sendKeys(input);
 			ButtonElement.click();
 			Thread.sleep(1000);
@@ -50,13 +47,11 @@ public class ASCII85DecoderTest
 	}
 
 	@Test
-	public void testDecoder()
-	{
+	public void testDecoder() {
 		String input = "<~0etOA2#~>";
 		String result = "12345";
 
-		try
-		{
+		try {
 			TextElement.sendKeys(input);
 			ButtonElement.click();
 			Thread.sleep(1000);
@@ -70,7 +65,7 @@ public class ASCII85DecoderTest
 			fail(e.getMessage());
 		}		
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
